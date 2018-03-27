@@ -21,18 +21,17 @@ body {
     font-family: 'Coda', cursive;
 }
 
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-}
-
 /*
  * Styles for the deck of cards
  */
@@ -108,12 +107,47 @@ h1 {
     cursor: pointer;
 }
 
+/*
+ * Added styles
+ */
+
 li {
   transition: 0.4s;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   -ms-transition: 0.4s;
   -o-transition: 0.4s;
+}
+
+.game-end{
+  z-index: 10;
+  background: #ffffff url('../img/fireworks.gif');
+  width: 100%;
+  height: 840px;
+  position: absolute;
+  /* This trasform moves the drawer off canvas. */
+  -webkit-transform: translate(-1550px, 0);
+  transform: translate(-1550px, 0);
+  /* Optionally, we animate the drawer. */
+  transition: transform 0.3s ease;
+}
+
+.game-end-show{
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.enlarge
+{
+  -webkit-animation-name: enlarge;
+  animation-name: enlarge;
+}
+
+.animated-match {
+   -webkit-animation-duration: 0.8s;
+   animation-duration: 0.8s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
 }
 
 @keyframes enlarge {
@@ -164,13 +198,12 @@ li {
          transform: scale(1); }
 }
 
-.enlarge
-{
-  -webkit-animation-name: enlarge;
-  animation-name: enlarge;
+.wobble {
+   -webkit-animation-name: wobble;
+   animation-name: wobble;
 }
 
-.animated-match {
+.animated-n-match {
    -webkit-animation-duration: 0.8s;
    animation-duration: 0.8s;
    -webkit-animation-fill-mode: both;
@@ -191,16 +224,4 @@ li {
   50%  { transform: translateX(15%) rotate(3deg); }
   75%  { transform: translateX(-15%) rotate(-3deg); }
   100% { transform: translateX(0%); }
-}
-
-.wobble {
-   -webkit-animation-name: wobble;
-   animation-name: wobble;
-}
-
-.animated-n-match {
-   -webkit-animation-duration: 0.8s;
-   animation-duration: 0.8s;
-   -webkit-animation-fill-mode: both;
-   animation-fill-mode: both;
 }
